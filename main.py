@@ -13,6 +13,9 @@ Base.metadata.create_all(bind=engine)
 from sqlalchemy.orm import session
 from security import authenticate_user, create_access_token
 app = FastAPI()
+@app.get("/")
+def home():
+    return {"message": "API Running 🚀", "go_to_docs": "/docs"}
 def get_db():
     db = SessionLocal()
     try:
